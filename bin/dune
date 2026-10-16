@@ -1,0 +1,4 @@
+(executable
+ (public_name hake)
+ (name main)
+ (libraries hake))

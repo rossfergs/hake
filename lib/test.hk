@@ -1,0 +1,9 @@
+var one = 1
+
+func addOne(num):
+    return num + one
+
+func test():
+    func _test(testing):
+        return test
+    return
