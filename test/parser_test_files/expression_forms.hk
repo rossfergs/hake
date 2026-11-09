@@ -1,0 +1,7 @@
+var integer = 123
+var decimal = 1.25
+var text = "hello"
+var name = value
+var grouped = (1 + 2) * 3
+var arithmetic = 10 - 3 / 2
+var equality = left = right

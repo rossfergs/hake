@@ -1,3 +1,9 @@
 (test
  (name test_hake)
  (libraries hake))
+
+(test
+ (name test_parser)
+ (libraries hake)
+ (deps
+  (glob_files parser_test_files/*.hk)))

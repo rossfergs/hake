@@ -17,9 +17,9 @@ open Ast
 %token Colon
 %token LParen
 %token RParen
-%token LSqb
-%token RSqb
 %token Comma
+%token Indent
+%token Dedent
 %token NLine
 %token Eof
 %left Eq
@@ -33,16 +33,28 @@ open Ast
 %%
 
 prog:
-  | ss = separated_list(NLine, statement) Eof { ss }
+  | ss = separated_list(NLine+, statement) Eof { ss }
+  ;
+
+eof_or_dedent:
+  | Eof { () }
+  | Dedent { () }
   ;
 
 statement:
-  | Var n = Name Eq e = expression { Var(n, e) }
-  | Func n = Name LParen p = separated_list(Comma, Name) RParen Colon NLine b = body { Func{ name = n; params = p; body = b } }
+  | Var n = Name Eq e = expression {
+      Var(n, e)
+    }
+  | Func n = Name LParen p = separated_list(Comma, Name) RParen Colon NLine Indent b = body eof_or_dedent {
+      Func{ name = n; params = p; body = b }
+    }
+  | Return e = expression? {
+      Return e
+    }
   ;
 
 body:
-  | ss = separated_list(NLine, statement) Return e = option(expression) { (ss, e) }
+  | ss = separated_list(NLine+, statement) { ss }
   ;
 
 expression:
@@ -54,6 +66,7 @@ expression:
   | LParen e = expression RParen { e }
   | i = Int { Int i }
   | s = String { String s }
+  | n = Name LParen args = separated_list(Comma, expression) RParen { Application (n, args) }
   | n = Name { Name n }
   | f = Float { Float f }
   ;

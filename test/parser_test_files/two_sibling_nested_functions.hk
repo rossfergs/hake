@@ -1,0 +1,6 @@
+func outer(x):
+    func first(a):
+        return a
+    func second(b):
+        return b
+    return x

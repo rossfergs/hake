@@ -6,4 +6,5 @@
 
 (library
  (name hake)
- (modules util hake ast parser lexer))
+ (libraries str unix)
+ (modules hake futil ast lexer parser indent))

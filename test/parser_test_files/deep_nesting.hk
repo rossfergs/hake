@@ -1,0 +1,8 @@
+func level1(a):
+    func level2(b):
+        func level3(c):
+            func level4(d):
+                return d
+            return c
+        return b
+    return a

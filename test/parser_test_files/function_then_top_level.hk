@@ -1,0 +1,5 @@
+var one = 1
+func addOne(num):
+    var zero = 0
+    return num + one + zero
+var answer = 42

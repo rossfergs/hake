@@ -1,0 +1,6 @@
+func outer(x):
+    func middle(y):
+        func inner(z):
+            return z
+    var after = x
+    return

@@ -1,0 +1,9 @@
+var before = 1
+
+func withGap(x):
+
+    var inside = x
+
+    return inside
+
+var after = 2

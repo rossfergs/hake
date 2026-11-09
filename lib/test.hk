@@ -1,9 +1,21 @@
 var one = 1
+var one = 1
+var one = 1
+var one = 1
 
 func addOne(num):
-    return num + one
+    var zero = 0
+    return num + one + zero
 
 func test():
     func _test(testing):
-        return test
+        return testing
+    return
+
+func test():
+    func _test(testing):
+      func _test(testing):
+          var x = y
+          return __test(x)
+        return __test(x)
     return

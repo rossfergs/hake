@@ -1,0 +1,4 @@
+func outer(x):
+    func inner(y):
+        return y
+    return x

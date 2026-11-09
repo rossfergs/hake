@@ -1,0 +1,8 @@
+>+ This file is to test comments +>
+
+func test(x):
+  >+ this is a comment WITIHN the function +>
+  var >+ this is a comment WITHIN a statement +> x = 2
+  return 2
+
+>+ this is a comment at the end of the file +>

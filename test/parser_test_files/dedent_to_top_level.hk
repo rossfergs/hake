@@ -1,0 +1,4 @@
+func outer(x):
+    var inside = x
+    return inside
+var outside = 2
