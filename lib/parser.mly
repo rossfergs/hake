@@ -33,7 +33,7 @@ open Ast
 %%
 
 prog:
-  | ss = separated_list(NLine+, statement) Eof { ss }
+  | NLine* ss = separated_list(NLine+, statement) Eof { ss }
   ;
 
 eof_or_dedent:

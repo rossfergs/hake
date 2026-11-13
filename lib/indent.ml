@@ -17,6 +17,12 @@ let get_level () =
     | [] -> 0
     | x :: _ -> x
 
+let get_lower_level () = 
+  match !pos_xs with
+  | _ :: size :: _ -> size
+  | _ :: [] | [] -> 0
+
+
 (**
   Add a new indentation layer to the list 
  *)

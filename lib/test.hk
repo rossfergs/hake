@@ -1,6 +1,4 @@
-var one = 1
-var one = 1
-var one = 1
+
 var one = 1
 
 func addOne(num):
@@ -17,5 +15,12 @@ func test():
       func _test(testing):
           var x = y
           return __test(x)
-        return __test(x)
-    return
+      return __test(x)
+    return __test(x)
+
+
+
+
+
+
+

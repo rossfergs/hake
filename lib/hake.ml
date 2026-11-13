@@ -1,9 +1,6 @@
 open Lexing
 
-module Test_utils = struct
-  let read_file filename = Futil.read_lines_concat filename
-end
-
+module Test_utils = struct let read_file filename = Futil.read_lines_concat filename end
 exception ParserFail of string
 
 let log = Futil.Logging.log ~min_level:`info ~tag:"HAKE!"
@@ -23,8 +20,10 @@ let parse_program input_string =
   (* return an empty list if the input is empty *)
   if is_empty input_string then let () = log `warning "Empty input!" in [] else
   (* process string to remove \n\s*\n and replace wiht \n\n *)
-  let re = Str.regexp {|^\s*$|} in
-  let processed_input = Str.global_replace re "\n\n" input_string in
+  let re_remove_empty_space = Str.regexp {|^\s*$|} in
+  let re_dup_newlines = Str.regexp {|\n\n+|} in
+  let processed_input = Str.global_replace re_remove_empty_space "\n\n" input_string
+  |> Str.global_replace re_dup_newlines "\n\n" in
   (* create token buffer from input *)
   let lexbuf = Lexing.from_string processed_input in
   try
